@@ -19,6 +19,11 @@ body {
     outline: 1px solid #fff;   
     /* positioning the container in the center */
     margin: 0 auto;
-    margin-top:20px;
     
+    /* making the images 3 times bigger */
+    transform: scale(3) translateY(50%);
+}
+
+.game-container canvas {
+    image-rendering: pixelated;
 }
