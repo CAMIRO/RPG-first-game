@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;  /* Reset to the box sizing model: */
+}
+
+body {
+    background: #333;
+    /* more general reset to the body */
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* disable the use of arrow keys on the keyboard */
+}
+
+.game-container {
+    position: relative;
+    /* this is the size of the container. Cant be adjusted */
+    width: 352px;
+    height: 198px;
+
+    outline: 1px solid #fff;   
+    /* positioning the container in the center */
+    margin: 0 auto;
+    margin-top:20px;
+    
+}
