@@ -3,7 +3,10 @@
 class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 32;
+    this.movingProgressRemaining = 0;
+
+    this.isPlayerControlled = config.isPlayerControlled || false;
+
     // TODO: Maybe this object can go outside the class?
     this.directionUpdate = {
       up: ["y", -1],
@@ -15,6 +18,16 @@ class Person extends GameObject {
 
   update(state) {
     this.updatePosition();
+    if (
+      this.isPlayerControlled &&
+      this.movingProgressRemaining === 0 &&
+      state.arrow
+    ) {
+      // Update direction
+      this.direction = state.arrow;
+      // Reset our counter
+      this.movingProgressRemaining = 16;
+    }
   }
 
   updatePosition() {

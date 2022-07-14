@@ -15,8 +15,13 @@ class Overworld {
       this.map.drawLowerImage(this.ctx);
 
       // Draw Game Objects
+      // // NOTE: The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop.
+      // // (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)
+      // // more info here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
       Object.values(this.map.gameObjects).forEach((object) => {
-        object.update({});
+        object.update({
+          arrow: this.directionInput.direction,
+        });
         object.sprite.draw(this.ctx);
       });
 
@@ -42,6 +47,9 @@ class Overworld {
     // image.src = "/images/maps/DemoLower.png";
 
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+
+    this.directionInput = new DirectionInput();
+    this.directionInput.init();
 
     this.startGameLoop();
   }
